@@ -1,7 +1,15 @@
 # dcsaml-idp
-source dockerfile and files for dcsaml-idp test IDP
+Source dockerfile and files for dcsaml-idp test IDP
 
-This Docker image sets up a test IDP using SimpleSamlPHP that you can use for SAML testing.  By default it contains two users: user1/user1pass, and user2/user2pass.  You can change these and the first/last names in src/authsources.php and rebuild if necessary.  If you don't want to rebuild the whole image you can also do:
+This Docker image sets up a test IDP using SimpleSamlPHP that you can use for SAML testing.  
+
+To build:
+
+```bash
+docker build -t bobrob/dcsaml-idp .
+```
+
+By default it contains two users: user1/user1pass, and user2/user2pass.  You can change these and the first/last names in src/authsources.php and rebuild if necessary.  If you don't want to rebuild the whole image you can also do this on a running image:
 
 ```bash
 docker cp src/authsources.php [docker-image-id]:/var/www/simplesamlphp/config/authsources.php
@@ -20,5 +28,8 @@ docker run --name=docker-saml -p 8080:80 -p 8443:443 \
 ```
 
 where "dockersaml" is your organization's virtual host.
+
+This image also exists on docker.io at https://hub.docker.com/r/bobrob/dcsaml-idp/
+
 
 
