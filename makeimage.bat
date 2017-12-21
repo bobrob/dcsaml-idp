@@ -1,0 +1,1 @@
+docker run --name=docker-saml -p 8080:80 -p 8443:443 -e SIMPLESAMLPHP_SP_ENTITY_ID=dockersaml.localhost -e SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=https://dockersaml.localhost:8443/api/saml/SSO/alias/dockersaml.localhost -e SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE=https://dockersaml.localhost:8443/api/saml/SingleLogout/alias/dockersaml.localhost -d bobrob/dcsaml-idp
